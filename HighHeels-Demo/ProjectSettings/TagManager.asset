@@ -9,6 +9,10 @@ TagManager:
   - leftparenttag
   - cylindertag
   - groundtag
+  - rotatortag
+  - balancetag
+  - leftheeltag
+  - wallbumptag
   layers:
   - Default
   - TransparentFX
