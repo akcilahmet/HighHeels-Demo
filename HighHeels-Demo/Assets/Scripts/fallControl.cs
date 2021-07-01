@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class fallControl : MonoBehaviour
 {
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
-        {
-            Debug.Log("Player grounda tems etti");
+        { 
+            //fall animation activated
             other.gameObject.GetComponent<Animator>().SetTrigger("fallprm");
             StartCoroutine(LoadLevelTime());
         }

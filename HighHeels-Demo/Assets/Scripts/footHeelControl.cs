@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class footHeelControl : MonoBehaviour
 {
-
+    
+    //parent values ​​created in the player
     public GameObject leftParent;
     public GameObject rightParent;
     public  int heel=1;
@@ -13,28 +14,15 @@ public class footHeelControl : MonoBehaviour
     {
         heel = 1;
     }
-    private void Update()
-    {
-    }
     private void OnTriggerEnter(Collider other)
     {
-        //if (other.gameObject.tag == "Player")
-        //{
-        //    Debug.Log("Player temas etti");
-        //    leftParent.transform.GetChild(heel).gameObject.SetActive(true);
-        //    rightParent.transform.GetChild(heel).gameObject.SetActive(true);
-        //    heel++;
-        //    Debug.Break();
-
-        //}
         if (other.gameObject.tag == "leftheeltag")
         {
-
+            //Left parent's children are activated according to the heel object taken from the ground
             Destroy(other.gameObject);
             leftParent.transform.GetChild(heel).gameObject.SetActive(true);
             rightParent.transform.GetChild(heel).gameObject.SetActive(true);
             heel++;
-            Debug.Log("heeldegeri" + heel);
         }
     }
 }

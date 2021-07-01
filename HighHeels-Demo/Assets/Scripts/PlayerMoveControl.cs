@@ -48,6 +48,8 @@ public class PlayerMoveControl : MonoBehaviour
         rotControl();
        
     }
+
+    //character's movement control
     void moveControl()
     {
         Vector3 move;
@@ -55,26 +57,23 @@ public class PlayerMoveControl : MonoBehaviour
         {
              move = new Vector3(variableJoystick.Horizontal * Horspeed * Time.fixedDeltaTime, rb.velocity.y, walkingSpeed * Time.fixedDeltaTime);
             rb.velocity = move;
-
         }
         else
         {
             transform.Translate(0, 0, 3 * Time.fixedDeltaTime);
-
         }
 
     }
-
+    //character's rot control
     void rotControl()
     {
         if (balanceObjControl == true)
         {
-            transform.Rotate(0, 0, randomValue- variableJoystick.Horizontal);
-           
+            transform.Rotate(0, 0, randomValue- variableJoystick.Horizontal); 
         }
     }
 
-
+    //random value balance returns when touching balance object
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "balancetag")
@@ -83,12 +82,11 @@ public class PlayerMoveControl : MonoBehaviour
             balanceObjControl = true;
 
             anim.SetBool("balanceprm", true);
-
-            
-
         }
     }
-
+    
+    /*denge objesinden çıkınca rotasyon değeri normale döndürüldü
+    rotation value returned to normal when exiting balance object*/
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "balancetag")

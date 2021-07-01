@@ -18,6 +18,7 @@ public class wallBumpControl : MonoBehaviour
     {
         if (other.gameObject.tag == "wallbumptag")
         {
+            //in contact with the wall, the activity is closed according to the number of heels in contact
             leftParent.transform.GetChild(footHeelControl.heel).gameObject.SetActive(false);
             rightParent.transform.GetChild(footHeelControl.heel).gameObject.SetActive(false);
             if (footHeelControl.heel > 1) 
@@ -28,6 +29,7 @@ public class wallBumpControl : MonoBehaviour
         }
         if (other.gameObject.tag == "Player")
         {
+            //If the player hits the wall, the game is ended.
             other.gameObject.GetComponent<Animator>().SetTrigger("fallprm");
             other.gameObject.GetComponent<PlayerMoveControl>().enabled=false;
             StartCoroutine(LoadLevelTime());
